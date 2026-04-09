@@ -1,17 +1,25 @@
 // pages/VisitTrackerPage.tsx
 import { useState } from 'react';
+import type { NavigationPage } from '../types';
 import { mockVisits, mockHealthSummary } from '../mockData';
 import Header from '../components/Header';
 import './VisitTrackerPage.css';
 
 type TabType = 'dashboard' | 'visit-notes' | 'timeline';
 
-function VisitTrackerPage() {
+type VisitTrackerPageProps = {
+  onNavigate?: (page: NavigationPage) => void;
+};
+
+function VisitTrackerPage({ onNavigate }: VisitTrackerPageProps) {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard');
   const [expandedVisitId, setExpandedVisitId] = useState<string | null>(null);
 
   const handleBackClick = () => {
     console.log('Navigate back');
+    if (onNavigate) {
+      onNavigate('home');
+    }
   };
 
   const toggleVisit = (visitId: string) => {

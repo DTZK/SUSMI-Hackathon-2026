@@ -1,13 +1,17 @@
 // pages/InfoHubPage.tsx
 import { useState } from 'react';
+import type { NavigationPage } from '../types';
 import { mockInfoTopics, mockCostGuide } from '../mockData';
 import Header from '../components/Header';
 import './InfoHubPage.css';
 
 type TabType = 'how-it-works' | 'eligibility' | 'cost-guide';
 type EligibilityStep = 'start' | 'care-type' | 'medicare-status' | 'result';
+type InfoHubPageProps = {
+  onNavigate?: (page: NavigationPage) => void;
+};
 
-function InfoHubPage() {
+function InfoHubPage({ onNavigate }: InfoHubPageProps) {
   const [activeTab, setActiveTab] = useState<TabType>('how-it-works');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
@@ -19,6 +23,9 @@ function InfoHubPage() {
 
   const handleBackClick = () => {
     console.log('Navigate back');
+    if (onNavigate) {
+      onNavigate('home');
+    }
   };
 
   const toggleTopic = (topicId: string) => {

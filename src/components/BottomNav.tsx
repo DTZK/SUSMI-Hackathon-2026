@@ -10,8 +10,8 @@ type BottomNavProps = {
 const navItems = [
   { id: 'home' as NavigationPage, icon: '🏠', label: 'Home' },
   { id: 'journey' as NavigationPage, icon: '📍', label: 'Journey' },
+  { id: 'info' as NavigationPage, icon: 'ℹ️', label: 'Info' },  // CHANGED: Added Info
   { id: 'support' as NavigationPage, icon: '💬', label: 'Support' },
-  { id: 'records' as NavigationPage, icon: '📄', label: 'Records' },
   { id: 'profile' as NavigationPage, icon: '👤', label: 'Profile' },
 ];
 

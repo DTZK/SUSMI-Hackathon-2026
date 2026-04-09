@@ -1,6 +1,6 @@
 // App.tsx - Main app component with page navigation
 import { useState } from 'react';
-import { type NavigationPage } from './types';
+import type { NavigationPage } from './types';
 
 // Import pages
 import HomePage from './pages/HomePage';
@@ -13,43 +13,93 @@ import './App.css';
 function App() {
   const [currentPage, setCurrentPage] = useState<NavigationPage>('home');
 
+  const handleNavigate = (page: NavigationPage) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0); // Scroll to top on page change
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <HomePage />;
+        return <HomePage onNavigate={handleNavigate} />;
+        
       case 'journey':
-        return <VisitTrackerPage />;
+        return <VisitTrackerPage onNavigate={handleNavigate} />;
+        
       case 'info':
-        return <InfoHubPage />;
+        return <InfoHubPage onNavigate={handleNavigate} />;
+        
       case 'support':
         return (
           <div className="page-container">
             <div className="main-content" style={{ textAlign: 'center', paddingTop: '3rem' }}>
-              <h1>Support (Coming Soon)</h1>
-              <p>Chatbot and support features will be available here.</p>
+              <h1>💬 Support</h1>
+              <p style={{ marginBottom: '1rem' }}>Chatbot coming soon!</p>
+              <button 
+                onClick={() => handleNavigate('home')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: '#2D8CFF',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                Back to Home
+              </button>
             </div>
           </div>
         );
+        
       case 'records':
         return (
           <div className="page-container">
             <div className="main-content" style={{ textAlign: 'center', paddingTop: '3rem' }}>
-              <h1>Records (Coming Soon)</h1>
-              <p>Document storage and medical records will be available here.</p>
+              <h1>📄 Records</h1>
+              <p style={{ marginBottom: '1rem' }}>Document storage coming soon!</p>
+              <button 
+                onClick={() => handleNavigate('home')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: '#2D8CFF',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                Back to Home
+              </button>
             </div>
           </div>
         );
+        
       case 'profile':
         return (
           <div className="page-container">
             <div className="main-content" style={{ textAlign: 'center', paddingTop: '3rem' }}>
-              <h1>Profile (Coming Soon)</h1>
-              <p>User profile and settings will be available here.</p>
+              <h1>👤 Profile</h1>
+              <p style={{ marginBottom: '1rem' }}>User settings coming soon!</p>
+              <button 
+                onClick={() => handleNavigate('home')}
+                style={{
+                  padding: '0.75rem 1.5rem',
+                  backgroundColor: '#2D8CFF',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                Back to Home
+              </button>
             </div>
           </div>
         );
+        
       default:
-        return <HomePage />;
+        return <HomePage onNavigate={handleNavigate} />;
     }
   };
 
@@ -58,7 +108,7 @@ function App() {
       {renderPage()}
       <BottomNav 
         currentPage={currentPage}
-        onPageChange={setCurrentPage}
+        onPageChange={handleNavigate}
       />
     </div>
   );

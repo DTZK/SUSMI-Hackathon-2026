@@ -1,6 +1,6 @@
 // pages/HomePage.tsx
 import { useState } from 'react';
-import type { Language, QuickAction } from '../types';
+import type { NavigationPage, Language, QuickAction } from '../types';
 import { 
   mockUser, 
   mockCareJourney, 
@@ -17,7 +17,13 @@ import QuickActions from '../components/QuickActions';
 
 import './HomePage.css';
 
-function HomePage() {
+// ADD THIS: Props type
+type HomePageProps = {
+  onNavigate?: (page: NavigationPage) => void;
+};
+
+// UPDATE THIS: Add onNavigate prop
+function HomePage({ onNavigate }: HomePageProps) {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(mockUser.preferredLanguage);
 
   const handleLanguageChange = (language: Language) => {
@@ -25,13 +31,25 @@ function HomePage() {
     console.log('Language changed to:', language);
   };
 
+  // Handle navigation
   const handleQuickAction = (action: QuickAction) => {
     console.log('Quick action clicked:', action.action);
+    
+    // Navigate to Info Hub if "Info hub" action
+    if (action.title === 'Info hub' && onNavigate) {
+      onNavigate('info');
+      return;
+    }
+    
     alert(`Chatbot: "${action.action}"`);
   };
 
+  // Navigate to journey
   const handleJourneyClick = () => {
     console.log('Journey clicked - navigate to journey page');
+    if (onNavigate) {
+      onNavigate('journey');
+    }
   };
 
   const handleNotificationClick = () => {
@@ -42,8 +60,12 @@ function HomePage() {
     console.log('Settings clicked');
   };
 
+  // Navigate to profile
   const handleProfileClick = () => {
     console.log('Profile clicked');
+    if (onNavigate) {
+      onNavigate('profile');
+    }
   };
 
   return (
