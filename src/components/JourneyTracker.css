@@ -1,0 +1,153 @@
+/* components/JourneyTracker.css */
+
+.journey-section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.journey-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.journey-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.journey-pathway {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+/* Journey Steps */
+.journey-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.step-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.step-circle.completed {
+  background-color: #10B981;
+  color: white;
+}
+
+.step-circle.current {
+  background-color: #2D8CFF;
+  color: white;
+}
+
+.step-circle.upcoming {
+  background-color: #E5E7EB;
+  color: #9CA3AF;
+}
+
+.step-label {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: center;
+  max-width: 70px;
+}
+
+.step-connector {
+  position: absolute;
+  top: 20px;
+  left: 60%;
+  width: 100%;
+  height: 2px;
+  background-color: #E5E7EB;
+  z-index: 1;
+}
+
+.step-connector.completed {
+  background-color: #10B981;
+}
+
+/* Progress Bar */
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: #666;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background-color: #E5E7EB;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #10B981;
+  transition: width 0.3s ease;
+}
+
+.progress-percentage {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+@media (max-width: 480px) {
+  .journey-steps {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .step-label {
+    font-size: 0.65rem;
+  }
+
+  .step-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+}

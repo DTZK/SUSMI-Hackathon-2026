@@ -1,0 +1,77 @@
+/* components/GreetingSection.css */
+
+.greeting-section {
+  margin-bottom: 2rem;
+}
+
+.greeting-time {
+  font-size: 0.75rem;
+  color: #888;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.user-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.user-info {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.separator {
+  color: #ddd;
+}
+
+.medicare-active {
+  color: #10B981;
+  font-weight: 500;
+}
+
+.medicare-inactive {
+  color: #EF4444;
+  font-weight: 500;
+}
+
+.language-selector {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.lang-flag {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-flag:hover {
+  background-color: #f8f8f8;
+  border-color: #2D8CFF;
+}
+
+.lang-flag.active {
+  background-color: #E0F2FE;
+  border-color: #2D8CFF;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .user-name {
+    font-size: 1.5rem;
+  }
+}

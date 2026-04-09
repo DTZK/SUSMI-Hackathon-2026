@@ -1,0 +1,54 @@
+/* components/Header.css */
+
+.header {
+  background-color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-brand {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2D8CFF;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.notification-btn {
+  position: relative;
+}
+
+.notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: #FF6B6B;
+  border-radius: 50%;
+  border: 2px solid white;
+}
