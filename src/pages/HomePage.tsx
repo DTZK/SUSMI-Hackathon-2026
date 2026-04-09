@@ -1,6 +1,6 @@
 // pages/HomePage.tsx
 import { useState } from 'react';
-import type { NavigationPage, Language, QuickAction } from '../types';
+import type { Language, QuickAction } from '../types';
 import { 
   mockUser, 
   mockCareJourney, 

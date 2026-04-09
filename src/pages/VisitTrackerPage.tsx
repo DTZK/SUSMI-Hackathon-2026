@@ -153,7 +153,7 @@ function VisitTrackerPage() {
   // Timeline Tab Content
   const renderTimeline = () => (
     <div className="timeline-tab">
-      {mockVisits.map((visit, index) => (
+      {mockVisits.map((visit) => (
         <div key={visit.id} className="timeline-item">
           <div className="timeline-marker">
             {visit.tags?.includes('Upcoming') ? '⏸' : '✓'}

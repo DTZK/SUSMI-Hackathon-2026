@@ -1,4 +1,3 @@
-import { type Language } from '../types';
 import './Header.css';
 
 type HeaderProps = {
