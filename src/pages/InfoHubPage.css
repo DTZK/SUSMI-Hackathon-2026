@@ -1,0 +1,531 @@
+/* pages/InfoHubPage.css */
+
+.language-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.lang-btn {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  border-color: #2D8CFF;
+}
+
+.lang-btn.active {
+  background-color: #E0F2FE;
+  border-color: #2D8CFF;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+/* How It Works Tab */
+.how-it-works-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #f8f8f8;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2D8CFF;
+  background-color: white;
+}
+
+.tab-description {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.topic-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.topic-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+.topic-header:hover {
+  background-color: #f8f8f8;
+}
+
+.topic-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.topic-title {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.topic-arrow {
+  font-size: 1.5rem;
+  color: #9CA3AF;
+}
+
+.topic-content {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.topic-content p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 1rem;
+  white-space: pre-line;
+}
+
+.topic-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Eligibility Tab */
+.eligibility-tab {
+  min-height: 400px;
+}
+
+.eligibility-start {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.eligibility-start h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.eligibility-start p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.start-btn {
+  background-color: #2D8CFF;
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.start-btn:hover {
+  background-color: #1E7DE8;
+}
+
+.eligibility-question {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #E5E7EB;
+}
+
+.progress-dot.active {
+  background-color: #2D8CFF;
+}
+
+.progress-dot.completed {
+  background-color: #10B981;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.step-label {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.eligibility-question h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.help-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.options-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.option-card {
+  background: #f8f8f8;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-card:hover {
+  border-color: #2D8CFF;
+  background-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 140, 255, 0.15);
+}
+
+.option-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.option-subtitle {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.eligibility-result {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.result-header h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #10B981;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.result-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.result-details {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 1rem;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+}
+
+.result-row span {
+  color: #666;
+}
+
+.result-row strong {
+  color: #1a1a1a;
+}
+
+.result-row strong.green {
+  color: #10B981;
+}
+
+.tip-box {
+  background-color: #FFF9E6;
+  border-left: 4px solid #F59E0B;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.tip-box strong {
+  color: #1a1a1a;
+}
+
+.result-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.secondary-btn {
+  flex: 1;
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondary-btn:hover {
+  background-color: #f8f8f8;
+  border-color: #2D8CFF;
+}
+
+.primary-btn {
+  flex: 1;
+  background-color: #2D8CFF;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #1E7DE8;
+}
+
+/* Cost Guide Tab */
+.cost-guide-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cost-guide-tab h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.filter-tab {
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.filter-tab:hover {
+  border-color: #2D8CFF;
+}
+
+.filter-tab.active {
+  background-color: #E0F2FE;
+  border-color: #2D8CFF;
+  color: #0284C7;
+  font-weight: 600;
+}
+
+.cost-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.cost-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cost-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cost-category-icon {
+  font-size: 2rem;
+}
+
+.cost-card-info {
+  flex: 1;
+}
+
+.cost-card-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.bulk-bill-badge {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.cost-breakdown {
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.cost-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.cost-row.small {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.cost-row strong {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.cost-row .green {
+  color: #10B981;
+}
+
+.cost-bar {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.cost-bar-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.cost-bar-fill.medicare {
+  background-color: #10B981;
+}
+
+.gap-fee-row {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid #f0f0f0;
+  font-weight: 600;
+}
+
+.cost-note {
+  background-color: #FFF9E6;
+  border-left: 4px solid #F59E0B;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.cost-note strong {
+  color: #1a1a1a;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .eligibility-start {
+    padding: 2rem 1rem;
+  }
+  
+  .result-actions {
+    flex-direction: column;
+  }
+}
