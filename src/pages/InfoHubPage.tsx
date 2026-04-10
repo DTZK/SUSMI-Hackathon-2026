@@ -344,17 +344,7 @@ function InfoHubPage({ onNavigate }: InfoHubPageProps) {
           </button>
           <h1 className="page-title">Info hub</h1>
         </div>
-
-        {/* Language Selector */}
-        <div className="language-bar">
-          <button className="lang-btn active">English</button>
-          <button className="lang-btn">中文</button>
-          <button className="lang-btn">Tiếng Việt</button>
-          <button className="lang-btn">한국어</button>
-          <button className="lang-btn">العربية</button>
-          <button className="lang-btn">हिंदी</button>
-        </div>
-
+        
         {/* Tabs */}
         <div className="tabs">
           <button 
