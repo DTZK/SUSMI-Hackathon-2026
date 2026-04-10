@@ -2,7 +2,7 @@
 
 export type Language = 'en' | 'zh' | 'vi' | 'ko' | 'ar' | 'hi';
 
-export type NavigationPage = 'home' | 'journey' | 'support' | 'records' | 'profile' | 'info';
+export type NavigationPage = 'home' | 'journey' | 'support' | 'records' | 'profile' | 'info' | 'alerts';
 
 export type JourneyStep = 'gp' | 'referral' | 'specialist' | 'tests' | 'care-plan';
 

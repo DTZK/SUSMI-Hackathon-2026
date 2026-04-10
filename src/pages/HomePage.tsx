@@ -5,7 +5,8 @@ import {
   mockUser, 
   mockCareJourney, 
   mockUpcomingAppointment, 
-  mockQuickActions 
+  mockQuickActions,
+  mockSmartAlerts
 } from '../mockData';
 
 // Import atomic components
@@ -14,18 +15,19 @@ import GreetingSection from '../components/GreetingSection';
 import JourneyTracker from '../components/JourneyTracker';
 import NextAppointment from '../components/NextAppointment';
 import QuickActions from '../components/QuickActions';
+import SmartAlerts from '../components/SmartAlerts'; 
 
 import './HomePage.css';
 
-// ADD THIS: Props type
+
 type HomePageProps = {
   onNavigate?: (page: NavigationPage) => void;
 };
 
-// UPDATE THIS: Add onNavigate prop
+
 function HomePage({ onNavigate }: HomePageProps) {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(mockUser.preferredLanguage);
-
+  const [alerts, setAlerts] = useState(mockSmartAlerts);
   const handleLanguageChange = (language: Language) => {
     setSelectedLanguage(language);
     console.log('Language changed to:', language);
@@ -59,6 +61,26 @@ function HomePage({ onNavigate }: HomePageProps) {
   const handleSettingsClick = () => {
     console.log('Settings clicked');
   };
+  const handleDismissAlert = (alertId: string) =>{
+    setAlerts(prevAlerts =>
+      prevAlerts.map(alert =>
+        alert.id === alertId ? { ...alert, dismissed: true } : alert
+      )
+    );
+  };
+
+  const handleAlertAction = (actionHandler: string) => {
+    console.log(`Alert action: ${actionHandler}`);
+    
+    // Navigate based on action
+    if (actionHandler === 'view-spending' && onNavigate) {
+      onNavigate('journey');
+    } else if (actionHandler === 'learn-health-check' && onNavigate) {
+      onNavigate('info');
+    } else {
+      alert(`Action: ${actionHandler}`);
+    }
+  };
 
   // Navigate to profile
   const handleProfileClick = () => {
@@ -67,6 +89,12 @@ function HomePage({ onNavigate }: HomePageProps) {
       onNavigate('profile');
     }
   };
+
+  // Filter to show only top 3 most important alerts on homepage
+  const topAlerts = alerts
+    .filter(a => !a.dismissed)
+    .sort((a, b) => a.priority - b.priority)
+    .slice(0, 3);
 
   return (
     <div className="page-container">
@@ -85,7 +113,23 @@ function HomePage({ onNavigate }: HomePageProps) {
           selectedLanguage={selectedLanguage}
           onLanguageChange={handleLanguageChange}
         />
-
+        {topAlerts.length > 0 && (
+                  <>
+                    <SmartAlerts 
+                      alerts={topAlerts}
+                      onDismiss={handleDismissAlert}
+                      onAction={handleAlertAction}
+                    />
+                    {alerts.filter(a => !a.dismissed).length > 3 && (
+                      <button 
+                        className="view-all-alerts-btn"
+                        onClick={() => onNavigate && onNavigate('alerts' as NavigationPage)}
+                      >
+                        View All Alerts ({alerts.filter(a => !a.dismissed).length})
+                      </button>
+                    )}
+                  </>
+                )}
         <JourneyTracker 
           journey={mockCareJourney}
           onJourneyClick={handleJourneyClick}

@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import VisitTrackerPage from './pages/VisitTrackerPage';
 import InfoHubPage from './pages/InfoHubPage';
 import BottomNav from './components/BottomNav';
+import AlertsPage from './pages/AlertsPage';
 
 import './App.css';
 
@@ -97,6 +98,9 @@ function App() {
             </div>
           </div>
         );
+        
+      case 'alerts':
+        return <AlertsPage onNavigate={handleNavigate} />;
         
       default:
         return <HomePage onNavigate={handleNavigate} />;
