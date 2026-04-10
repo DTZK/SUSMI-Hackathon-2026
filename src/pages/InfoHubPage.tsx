@@ -13,7 +13,7 @@ type InfoHubPageProps = {
 
 function InfoHubPage({ onNavigate }: InfoHubPageProps) {
   const [activeTab, setActiveTab] = useState<TabType>('how-it-works');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
   
   // Eligibility checker state
@@ -63,7 +63,7 @@ function InfoHubPage({ onNavigate }: InfoHubPageProps) {
   // How It Works Tab
   const renderHowItWorks = () => (
     <div className="how-it-works-tab">
-      <div className="search-container">
+      {/* <div className="search-container">
         <input
           type="text"
           className="search-input"
@@ -71,7 +71,7 @@ function InfoHubPage({ onNavigate }: InfoHubPageProps) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-      </div>
+      </div> */}
 
       <p className="tab-description">
         Tap any topic to learn more in plain English.
@@ -344,7 +344,7 @@ function InfoHubPage({ onNavigate }: InfoHubPageProps) {
           </button>
           <h1 className="page-title">Info hub</h1>
         </div>
-        
+
         {/* Tabs */}
         <div className="tabs">
           <button 
