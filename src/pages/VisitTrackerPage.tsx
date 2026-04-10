@@ -102,7 +102,7 @@ function VisitTrackerPage({ onNavigate }: VisitTrackerPageProps) {
 
         <div className="spending-total">
           <strong>Medicare saved you</strong>
-          <strong className="savings">${mockHealthSummary.medicareRebateTotal} so far</strong>
+          <strong className="savings">${mockHealthSummary.medicareRebateTotal}</strong>
         </div>
       </div>
     </div>

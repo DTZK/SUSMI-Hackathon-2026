@@ -1,6 +1,4 @@
 // mockData.ts - Sample data for development
-
-// mockData.ts - Sample data for development
 import type {
   User,
   CareJourney,
@@ -9,8 +7,148 @@ import type {
   HealthSummary,
   QuickAction,
   InfoTopic,
-  CostGuideItem
+  CostGuideItem,
+  SmartAlert,
+  AlertRule
 } from './types';
+
+// mockData.ts - Add this at the end
+
+export const mockSmartAlerts: SmartAlert[] = [
+  {
+    id: '1',
+    type: 'urgent',
+    category: 'follow-up',
+    title: 'Follow-up appointment needed',
+    message: 'You haven\'t booked a follow-up with Dr. Mark Nguyen after your specialist visit on 18 Apr.',
+    contextualInfo: 'It\'s recommended to see your GP within 2 weeks after a specialist consultation to discuss results and next steps.',
+    actionLabel: 'Book GP Appointment',
+    actionHandler: 'book-gp',
+    dueDate: '2 May 2025',
+    priority: 1,
+    dismissed: false,
+    createdAt: '22 Apr 2025',
+    relatedVisitId: '4',
+  },
+  {
+    id: '2',
+    type: 'important',
+    category: 'test-due',
+    title: 'Blood pressure monitoring due',
+    message: 'Your last 2 GP visits showed elevated BP (148/92). You should monitor your blood pressure regularly.',
+    contextualInfo: 'Dr. Nguyen recommended daily BP monitoring. It\'s been 10 days since your last check.',
+    actionLabel: 'Log BP Reading',
+    actionHandler: 'log-bp',
+    dueDate: 'Ongoing',
+    priority: 2,
+    dismissed: false,
+    createdAt: '20 Apr 2025',
+    relatedVisitId: '1',
+  },
+  {
+    id: '3',
+    type: 'important',
+    category: 'test-due',
+    title: 'Echocardiogram likely needed',
+    message: 'Dr. Lisa Park mentioned an echocardiogram would likely be ordered at your first visit.',
+    contextualInfo: 'After your specialist consultation on 18 Apr, you may need to book this test. Wait for Dr. Park\'s referral.',
+    actionLabel: 'Check Test Status',
+    actionHandler: 'check-test',
+    dueDate: 'After 18 Apr visit',
+    priority: 3,
+    dismissed: false,
+    createdAt: '15 Apr 2025',
+    relatedAppointmentId: '1',
+  },
+  {
+    id: '4',
+    type: 'info',
+    category: 'preventive',
+    title: 'Annual health check approaching',
+    message: 'You\'re eligible for a Medicare-funded annual health assessment.',
+    contextualInfo: 'Patients with chronic conditions can get a comprehensive health check once per year, fully covered by Medicare.',
+    actionLabel: 'Learn More',
+    actionHandler: 'learn-health-check',
+    dueDate: 'June 2025',
+    priority: 4,
+    dismissed: false,
+    createdAt: '10 Apr 2025',
+  },
+  {
+    id: '5',
+    type: 'info',
+    category: 'cost',
+    title: 'Medicare Safety Net update',
+    message: 'You\'re $622 away from the Medicare Safety Net threshold.',
+    contextualInfo: 'Once you reach $811.80 in out-of-pocket costs, Medicare rebates increase to 80% for the rest of the year.',
+    actionLabel: 'View Spending',
+    actionHandler: 'view-spending',
+    priority: 5,
+    dismissed: false,
+    createdAt: '18 Apr 2025',
+  },
+  {
+    id: '6',
+    type: 'success',
+    category: 'appointment',
+    title: 'Appointment confirmed',
+    message: 'Your cardiologist appointment with Dr. Lisa Park is confirmed for 18 Apr at 2:30pm.',
+    contextualInfo: 'Remember to bring your Medicare card, referral letter, and list of current medications.',
+    priority: 6,
+    dismissed: false,
+    createdAt: '5 Apr 2025',
+    relatedAppointmentId: '1',
+  },
+];
+
+// Alert generation rules (for demonstration)
+export const mockAlertRules: AlertRule[] = [
+  {
+    id: 'rule-1',
+    name: 'Post-specialist follow-up',
+    description: 'Trigger when no GP follow-up booked within 2 weeks of specialist visit',
+    condition: 'specialist_visit + 14_days && no_gp_booking',
+    category: 'follow-up',
+    type: 'urgent',
+    priority: 1,
+  },
+  {
+    id: 'rule-2',
+    name: 'Elevated BP monitoring',
+    description: 'Trigger when BP elevated in 2+ consecutive visits',
+    condition: 'bp_elevated >= 2 && last_check > 7_days',
+    category: 'test-due',
+    type: 'important',
+    priority: 2,
+  },
+  {
+    id: 'rule-3',
+    name: 'Pending test after specialist',
+    description: 'Remind about tests mentioned by specialist',
+    condition: 'specialist_mentioned_test && test_not_booked',
+    category: 'test-due',
+    type: 'important',
+    priority: 3,
+  },
+  {
+    id: 'rule-4',
+    name: 'Annual health check eligibility',
+    description: 'Trigger for patients with chronic conditions once per year',
+    condition: 'chronic_condition && last_health_check > 12_months',
+    category: 'preventive',
+    type: 'info',
+    priority: 4,
+  },
+  {
+    id: 'rule-5',
+    name: 'Safety Net proximity',
+    description: 'Alert when within $100 of Safety Net threshold',
+    condition: 'out_of_pocket > (safety_net_threshold - 100)',
+    category: 'cost',
+    type: 'info',
+    priority: 5,
+  },
+];
 
 export const mockUser: User = {
   name: "Sarah Chen",
@@ -265,3 +403,4 @@ export const mockCostGuide: CostGuideItem[] = [
     typicalGapFee: '$20-$60'
   }
 ];
+

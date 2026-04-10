@@ -1,0 +1,121 @@
+/* pages/AlertsPage.css */
+
+.alert-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid transparent;
+}
+
+.stat-box.urgent {
+  border-left-color: #EF4444;
+}
+
+.stat-box.important {
+  border-left-color: #F59E0B;
+}
+
+.stat-box.info {
+  border-left-color: #3B82F6;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dismissed-section {
+  margin: 2rem 0;
+}
+
+.show-dismissed-btn {
+  width: 100%;
+  background: white;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+
+.show-dismissed-btn:hover {
+  background-color: #f8f8f8;
+  border-color: #2D8CFF;
+  color: #2D8CFF;
+}
+
+.dismissed-alerts h3 {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.alerts-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.alerts-info h3 {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.alerts-info p {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.alerts-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.alerts-info ul li {
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.alerts-info ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10B981;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .alert-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+}

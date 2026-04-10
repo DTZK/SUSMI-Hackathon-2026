@@ -8,6 +8,36 @@ export type JourneyStep = 'gp' | 'referral' | 'specialist' | 'tests' | 'care-pla
 
 export type VisitType = 'GP' | 'Pathology' | 'Specialist' | 'Imaging' | 'Allied Health';
 
+export type AlertType = 'urgent' | 'important' | 'info' | 'success';
+export type AlertCategory = 'follow-up' | 'test-due' | 'prescription' | 'preventive' | 'appointment' | 'cost';
+
+export interface SmartAlert {
+  id: string;
+  type: AlertType;
+  category: AlertCategory;
+  title: string;
+  message: string;
+  contextualInfo?: string;
+  actionLabel?: string;
+  actionHandler?: string; // Action ID to trigger
+  dueDate?: string;
+  priority: number; // 1 = highest
+  dismissed: boolean;
+  createdAt: string;
+  relatedVisitId?: string;
+  relatedAppointmentId?: string;
+}
+
+export interface AlertRule {
+  id: string;
+  name: string;
+  description: string;
+  condition: string; // Description of when to trigger
+  category: AlertCategory;
+  type: AlertType;
+  priority: number;
+}
+
 export interface User {
   name: string;
   referringGP: string;
