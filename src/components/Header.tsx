@@ -15,7 +15,7 @@ function Header ({
 }: HeaderProps) {
     return (
         <header className='Header'>
-            <div className='header-brand'> HealthPath</div>
+            <div className='header-brand'> Health Bridge</div>
             <div className='header-actions'>
                 <button className="icon-btn notification-btn" 
                     onClick={onNotificationClick}
